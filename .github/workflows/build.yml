@@ -1,0 +1,59 @@
+name: Build HikariRO BrowEdit Mod
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Clone BrowEdit3 v3.639
+        shell: pwsh
+        run: git clone --branch v3.639 --depth 1 https://github.com/Borf/BrowEdit3.git source
+
+      - name: Decode and apply HikariRO patch
+        shell: pwsh
+        run: |
+          $encoded = Get-Content patches/0001-add-procedural-map-generator.patch.gz.b64 -Raw
+          [IO.File]::WriteAllBytes("generator.patch.gz", [Convert]::FromBase64String($encoded.Trim()))
+          $inputFile = [IO.File]::OpenRead("generator.patch.gz")
+          $gzip = [IO.Compression.GzipStream]::new($inputFile, [IO.Compression.CompressionMode]::Decompress)
+          $outputFile = [IO.File]::Create("generator.patch")
+          $gzip.CopyTo($outputFile)
+          $outputFile.Close()
+          $gzip.Close()
+          $inputFile.Close()
+          cd source
+          git config user.name "HikariRO Build"
+          git config user.email "noreply@hikariro.com"
+          git am ../generator.patch
+
+      - uses: microsoft/setup-msbuild@v2
+
+      - name: Set build version
+        shell: cmd
+        working-directory: source
+        run: echo #define VERSION 640^>Version.h
+
+      - name: Build
+        working-directory: source
+        run: msbuild /m /p:Configuration=Release .
+
+      - name: Package
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force dist
+          Copy-Item source/BrowEdit3.exe dist/
+          Copy-Item source/imgui.ini dist/
+          Copy-Item source/lib/bugtrap/BugTrap-x64.dll dist/
+          Copy-Item source/data dist/data -Recurse
+          Copy-Item source/docs dist/docs -Recurse
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: HikariRO-BrowEdit-Mod
+          path: dist
