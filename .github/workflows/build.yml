@@ -37,7 +37,7 @@ jobs:
       - name: Set build version
         shell: cmd
         working-directory: source
-        run: echo #define VERSION 640^>Version.h
+        run: echo #define VERSION 641^>Version.h
 
       - name: Build
         working-directory: source
@@ -55,5 +55,5 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: HikariRO-BrowEdit-Mod
+          name: HikariRO-BrowEdit-Mod-v3.641
           path: dist
