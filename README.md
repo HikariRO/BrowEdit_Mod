@@ -13,3 +13,5 @@ Esta versión añade una plantilla **Procedural** en `File > New` con:
 - rutas conectadas y zonas bloqueadas coherentes.
 
 La compilación se genera automáticamente desde BrowEdit3 v3.639 aplicando los parches de `patches/`.
+
+El ejecutable compilado se publica como artefacto **HikariRO-BrowEdit-Mod** en GitHub Actions.
