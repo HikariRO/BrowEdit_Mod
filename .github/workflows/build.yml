@@ -18,9 +18,7 @@ jobs:
       - name: Decode and apply HikariRO patch
         shell: pwsh
         run: |
-          $encoded = Get-Content patches/0001-add-procedural-map-generator.patch.gz.b64 -Raw
-          [IO.File]::WriteAllBytes("generator.patch.gz", [Convert]::FromBase64String($encoded.Trim()))
-          $inputFile = [IO.File]::OpenRead("generator.patch.gz")
+          $inputFile = [IO.File]::OpenRead("patches/0001-add-procedural-map-generator.patch.gz.b64")
           $gzip = [IO.Compression.GzipStream]::new($inputFile, [IO.Compression.CompressionMode]::Decompress)
           $outputFile = [IO.File]::Create("generator.patch")
           $gzip.CopyTo($outputFile)
