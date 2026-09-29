@@ -26,3 +26,11 @@ El ejecutable compilado se publica como artefacto **HikariRO-BrowEdit-Mod** en G
 
 El ejecutable incluye la versión en su propio nombre y en `BUILD_INFO.txt` para
 evitar confundirlo con instalaciones anteriores de BrowEdit3.
+
+## Remake current map
+
+`File > Remake current map...` crea un mapa nuevo usando el mapa abierto como
+plantilla completa. Reorganiza bloques de terreno junto con su GAT y traslada
+los objetos contenidos en cada bloque. Conserva las texturas, UV, modelos,
+iluminación y agua del original. La semilla permite repetir el resultado y el
+mapa fuente nunca se sobrescribe.

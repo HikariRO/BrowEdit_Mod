@@ -35,7 +35,7 @@ jobs:
       - name: Set build version
         shell: pwsh
         working-directory: source
-        run: Set-Content -Path Version.h -Value '#define VERSION 648'
+        run: Set-Content -Path Version.h -Value '#define VERSION 649'
 
       - name: Build
         working-directory: source
@@ -45,14 +45,14 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force dist
-          Copy-Item source/BrowEdit3.exe dist/HikariRO_BrowEdit_Mod_v3.648.exe
+          Copy-Item source/BrowEdit3.exe dist/HikariRO_BrowEdit_Mod_v3.649.exe
           Copy-Item source/imgui.ini dist/
           Copy-Item source/lib/bugtrap/BugTrap-x64.dll dist/
           Copy-Item source/data dist/data -Recurse
           Copy-Item source/docs dist/docs -Recurse
-          "HikariRO BrowEdit Mod v3.648`nCommit: $env:GITHUB_SHA" | Set-Content dist/BUILD_INFO.txt
+          "HikariRO BrowEdit Mod v3.649`nCommit: $env:GITHUB_SHA" | Set-Content dist/BUILD_INFO.txt
 
       - uses: actions/upload-artifact@v4
         with:
-          name: HikariRO-BrowEdit-Mod-v3.648
+          name: HikariRO-BrowEdit-Mod-v3.649
           path: dist
