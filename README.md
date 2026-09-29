@@ -14,6 +14,7 @@ Esta versión añade una plantilla **Procedural** en `File > New` con:
 - habitaciones separadas y totalmente conectadas;
 - caminos alternativos, separación y altura de pared configurables;
 - UV de suelo y pared tomados del tipo de superficie correcto.
+- selector visual con miniaturas y búsqueda para las texturas de suelo y pared.
 
 La compilación se genera automáticamente desde BrowEdit3 v3.639 aplicando los parches de `patches/`.
 
