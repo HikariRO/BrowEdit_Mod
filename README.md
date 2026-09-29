@@ -34,3 +34,9 @@ plantilla completa. Reorganiza bloques de terreno junto con su GAT y traslada
 los objetos contenidos en cada bloque. Conserva las texturas, UV, modelos,
 iluminación y agua del original. La semilla permite repetir el resultado y el
 mapa fuente nunca se sobrescribe.
+
+Desde v3.650, la selección del nuevo diseño compara primero los bordes de los
+bloques y solo valida la conectividad de los mejores candidatos. Esto evita que
+la interfaz quede bloqueada durante cientos de análisis completos. El quadtree
+se recalcula al guardar el resultado, no durante su previsualización.
+
