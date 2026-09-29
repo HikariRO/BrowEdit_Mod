@@ -40,3 +40,8 @@ bloques y solo valida la conectividad de los mejores candidatos. Esto evita que
 la interfaz quede bloqueada durante cientos de análisis completos. El quadtree
 se recalcula al guardar el resultado, no durante su previsualización.
 
+Desde v3.651, la selección también compara las alturas GND y la presencia de
+superficie a ambos lados de cada unión. El control `Remake strength` permite
+limitar el porcentaje de bloques desplazados; el valor inicial del 30 % conserva
+gran parte de la estructura original y reduce paredes y desniveles incompatibles.
+
