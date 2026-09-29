@@ -18,6 +18,7 @@ Esta versión añade una plantilla **Procedural** en `File > New` con:
 - plano de agua desactivado por defecto para evitar solapamientos con el suelo.
 - tercera textura visual para crear un borde superior de roca alrededor de las galerías, sin cubrir el mapa completo.
 - semilla aleatoria nueva en cada creación, con opción de fijarla para reproducir un diseño.
+- refresco completo del renderizador y ocultación inicial de celdas vacías para mostrar únicamente el terreno generado.
 
 La compilación se genera automáticamente desde BrowEdit3 v3.639 aplicando los parches de `patches/`.
 
