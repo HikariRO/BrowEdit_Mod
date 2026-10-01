@@ -45,3 +45,8 @@ superficie a ambos lados de cada unión. El control `Remake strength` permite
 limitar el porcentaje de bloques desplazados; el valor inicial del 30 % conserva
 gran parte de la estructura original y reduce paredes y desniveles incompatibles.
 
+Desde v3.652, las uniones modificadas se reparan después de reorganizar el mapa:
+los caminos compatibles comparten exactamente la misma altura GND/GAT, se
+elimina la pared que los separaba y las salidas incompatibles se cierran con
+pared y colisión. Las uniones originales que no se desplazan no se modifican.
+
