@@ -50,3 +50,8 @@ los caminos compatibles comparten exactamente la misma altura GND/GAT, se
 elimina la pared que los separaba y las salidas incompatibles se cierran con
 pared y colisión. Las uniones originales que no se desplazan no se modifican.
 
+Desde v3.653, una unión con suelo y GAT transitables en ambos lados siempre se
+conserva, aunque exista una diferencia de altura, creando una transición en vez
+de cerrarla. La búsqueda evalúa 256 distribuciones de bordes y comprueba la
+conectividad completa de las 8 mejores.
+
