@@ -55,3 +55,8 @@ conserva, aunque exista una diferencia de altura, creando una transición en vez
 de cerrarla. La búsqueda evalúa 256 distribuciones de bordes y comprueba la
 conectividad completa de las 8 mejores.
 
+Desde v3.654, cuando dos bloques afectados no tienen ninguna unión directa pero
+sus aperturas están separadas por un máximo de 8 celdas, se crea una transición
+corta de dos celdas de anchura. La transición interpola el terreno, conserva una
+textura de suelo válida, elimina las paredes interiores y abre el GAT necesario.
+
