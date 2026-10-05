@@ -69,3 +69,8 @@ Desde v3.656, todos los bloques con terreno visible participan en la
 reconstrucción y `Remake strength` controla cuántas posiciones anteriormente
 vacías se incorporan al nuevo trazado. De este modo también cambia la silueta
 general del mapa y se evita generar una copia apenas modificada del original.
+
+Desde v3.657, los bloques trasladados se normalizan a una altura común antes de
+reparar sus uniones. El mismo desplazamiento vertical se aplica al terreno GND,
+las colisiones GAT y los objetos RSW, evitando fragmentos suspendidos, raíles
+enterrados y desniveles heredados de la posición original.
