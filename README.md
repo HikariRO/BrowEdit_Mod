@@ -60,3 +60,8 @@ sus aperturas están separadas por un máximo de 8 celdas, se crea una transici�
 corta de dos celdas de anchura. La transición interpola el terreno, conserva una
 textura de suelo válida, elimina las paredes interiores y abre el GAT necesario.
 
+Desde v3.655, `Remake strength` se calcula únicamente sobre bloques que contienen
+una cantidad significativa de terreno visible. Los bloques negros o casi vacíos
+no se seleccionan para el intercambio, por lo que el resultado siempre modifica
+zonas construidas del mapa y no una porción invisible del rectángulo exterior.
+
