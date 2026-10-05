@@ -65,3 +65,7 @@ una cantidad significativa de terreno visible. Los bloques negros o casi vacíos
 no se seleccionan para el intercambio, por lo que el resultado siempre modifica
 zonas construidas del mapa y no una porción invisible del rectángulo exterior.
 
+Desde v3.656, todos los bloques con terreno visible participan en la
+reconstrucción y `Remake strength` controla cuántas posiciones anteriormente
+vacías se incorporan al nuevo trazado. De este modo también cambia la silueta
+general del mapa y se evita generar una copia apenas modificada del original.
