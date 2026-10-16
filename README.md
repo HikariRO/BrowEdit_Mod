@@ -105,3 +105,10 @@ sin rellenar fosos o salas grandes. La búsqueda de conexiones penaliza además
 las diferencias de altura para preferir galerías próximas y pendientes suaves.
 La ventana de remake explica la semilla de generación y permite obtener otra
 semilla mediante un botón dedicado.
+
+Desde v3.663, los bloques con terreno se colocan una única vez dentro de una
+huella nueva, compacta, contigua e irregular. Los bloques vacíos ocupan el resto
+mediante una permutación completa, eliminando restos del trazado original y
+evitando habitaciones duplicadas. La intensidad controla la variación del
+crecimiento de la nueva silueta. El historial de cambios permanece cerrado al
+iniciar y puede abrirse manualmente desde el menú.
