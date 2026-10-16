@@ -84,3 +84,10 @@ Desde v3.659, la interfaz dispone de localización centralizada, arranca en
 castellano de forma predeterminada y permite cambiar entre `Español` y `English`
 desde Configuración. La elección queda guardada en `config.json`; nombres de
 archivos, mapas, texturas y modelos no se traducen.
+
+Desde v3.660, el resultado se valida por regiones transitables después de
+ensamblar y reparar los fragmentos. Las zonas útiles que hayan quedado aisladas
+se conectan con transiciones de tres celdas GAT: se crea al mismo tiempo el
+suelo GND, se interpolan las alturas, se abren las paredes interiores y se
+sincroniza la colisión. La creación se cancela si no es posible obtener un
+trazado conectado, evitando guardar remakes con sectores inaccesibles.
