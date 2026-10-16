@@ -91,3 +91,10 @@ se conectan con transiciones de tres celdas GAT: se crea al mismo tiempo el
 suelo GND, se interpolan las alturas, se abren las paredes interiores y se
 sincroniza la colisión. La creación se cancela si no es posible obtener un
 trazado conectado, evitando guardar remakes con sectores inaccesibles.
+
+Desde v3.661, la conectividad exige que cada celda tenga simultáneamente GAT
+transitable y superficie GND visible; de este modo los huecos negros ya no
+pueden contar como caminos. Las transiciones automáticas son más anchas. La
+ventana inicial de Configuración tiene un tamaño mínimo práctico, recupera el
+foco al cerrar los selectores de carpetas/GRF y no se muestran paneles de
+edición antes de abrir o crear un mapa.
