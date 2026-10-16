@@ -79,3 +79,8 @@ Desde v3.658, la distribución deja de ser una permutación aleatoria simple. El
 mapa se ensambla progresivamente comparando los bordes de cada fragmento: suelo,
 GAT transitable, paredes y alturas. Se generan 256 trazados compatibles y se
 evalúa la conectividad de los 32 mejores antes de elegir el resultado final.
+
+Desde v3.659, la interfaz dispone de localización centralizada, arranca en
+castellano de forma predeterminada y permite cambiar entre `Español` y `English`
+desde Configuración. La elección queda guardada en `config.json`; nombres de
+archivos, mapas, texturas y modelos no se traducen.
