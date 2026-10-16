@@ -98,3 +98,10 @@ pueden contar como caminos. Las transiciones automáticas son más anchas. La
 ventana inicial de Configuración tiene un tamaño mínimo práctico, recupera el
 foco al cerrar los selectores de carpetas/GRF y no se muestran paneles de
 edición antes de abrir o crear un mapa.
+
+Desde v3.662, una fase conservadora cierra únicamente huecos de una celda
+rodeados por al menos tres superficies visibles, redondeando bordes de bloques
+sin rellenar fosos o salas grandes. La búsqueda de conexiones penaliza además
+las diferencias de altura para preferir galerías próximas y pendientes suaves.
+La ventana de remake explica la semilla de generación y permite obtener otra
+semilla mediante un botón dedicado.
