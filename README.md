@@ -74,3 +74,8 @@ Desde v3.657, los bloques trasladados se normalizan a una altura común antes de
 reparar sus uniones. El mismo desplazamiento vertical se aplica al terreno GND,
 las colisiones GAT y los objetos RSW, evitando fragmentos suspendidos, raíles
 enterrados y desniveles heredados de la posición original.
+
+Desde v3.658, la distribución deja de ser una permutación aleatoria simple. El
+mapa se ensambla progresivamente comparando los bordes de cada fragmento: suelo,
+GAT transitable, paredes y alturas. Se generan 256 trazados compatibles y se
+evalúa la conectividad de los 32 mejores antes de elegir el resultado final.
