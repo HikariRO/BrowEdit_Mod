@@ -112,3 +112,8 @@ mediante una permutación completa, eliminando restos del trazado original y
 evitando habitaciones duplicadas. La intensidad controla la variación del
 crecimiento de la nueva silueta. El historial de cambios permanece cerrado al
 iniciar y puede abrirse manualmente desde el menú.
+
+Desde v3.664, las vistas de mapa y sus framebuffer validan el área disponible
+antes de redimensionarse o renderizarse. Esto evita enviar dimensiones negativas
+a `glTexImage2D` y `glViewport` durante la restauración del diseño de ventanas,
+eliminando los errores `GL_INVALID_VALUE` al abrir mapas en paneles pequeños.
