@@ -117,3 +117,10 @@ Desde v3.664, las vistas de mapa y sus framebuffer validan el área disponible
 antes de redimensionarse o renderizarse. Esto evita enviar dimensiones negativas
 a `glTexImage2D` y `glViewport` durante la restauración del diseño de ventanas,
 eliminando los errores `GL_INVALID_VALUE` al abrir mapas en paneles pequeños.
+
+Desde v3.665, el remake incorpora una fase final orientada a mapas jugables:
+elimina restos de bloques descartados y del borde no cubierto, rellena cavidades
+interiores compactas conservando textura y suavizando alturas, descarta objetos
+que quedarían flotando en fragmentos eliminados y garantiza una única región
+GAT accesible. Los grandes vacíos conectados con el exterior se conservan como
+límites naturales de la dungeon.
