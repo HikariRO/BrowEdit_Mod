@@ -131,3 +131,11 @@ encerrados, trazados fragmentados y resultados visualmente peores que el mapa
 original. Si ningún candidato alcanza el umbral, cancela y elimina los archivos
 temporales. El panel `Editar alturas` permanece cerrado al cargar un mapa y se
 abre únicamente al seleccionar expresamente el modo de alturas.
+
+Desde v3.667, ningún bloque que contenga suelo visible se descarta como vacío:
+esto conserva pasillos estrechos, raíles y puentes que antes podían quedar
+cortados. La selección del resultado penaliza también las islas independientes
+de suelo y bloquea cualquier celda GAT transitable situada sobre terreno negro.
+Si el nombre de salida ya existe, el programa permite sobrescribirlo mediante
+una confirmación explícita; conserva temporalmente los archivos RSW, GND y GAT
+anteriores y los restaura automáticamente si la generación no termina bien.
