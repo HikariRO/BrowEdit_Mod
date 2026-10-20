@@ -124,3 +124,10 @@ interiores compactas conservando textura y suavizando alturas, descarta objetos
 que quedarían flotando en fragmentos eliminados y garantiza una única región
 GAT accesible. Los grandes vacíos conectados con el exterior se conservan como
 límites naturales de la dungeon.
+
+Desde v3.666, el generador evalúa 512 distribuciones completas, coloca los
+bloques más densos en el interior de la nueva silueta y penaliza huecos negros
+encerrados, trazados fragmentados y resultados visualmente peores que el mapa
+original. Si ningún candidato alcanza el umbral, cancela y elimina los archivos
+temporales. El panel `Editar alturas` permanece cerrado al cargar un mapa y se
+abre únicamente al seleccionar expresamente el modo de alturas.
