@@ -139,3 +139,10 @@ de suelo y bloquea cualquier celda GAT transitable situada sobre terreno negro.
 Si el nombre de salida ya existe, el programa permite sobrescribirlo mediante
 una confirmación explícita; conserva temporalmente los archivos RSW, GND y GAT
 anteriores y los restaura automáticamente si la generación no termina bien.
+
+Desde v3.668, el remake deja de recolocar cuadrados independientes. Primero
+detecta regiones de terreno unidas por superficies anchas y desplaza cada sala,
+plataforma o conjunto estructural como una sola unidad. Las alturas relativas y
+las paredes internas de cada región se conservan; solamente se reconstruyen las
+conexiones estrechas entre regiones. Si las regiones no caben sin solaparse, la
+generación se cancela y el mapa anterior permanece intacto.
