@@ -173,3 +173,10 @@ podía producir cortes rectos en mapas densos. En estos casos se amplía únicam
 el mapa de salida con un borde bloqueado y alineado al tamaño de fragmento. Ese
 espacio permite recolocar regiones completas conservando su geometría interna,
 paredes, alturas, objetos y rutas; el mapa fuente mantiene sus dimensiones.
+
+Desde v3.672, los mapas densos conservan conjuntos mayores: las regiones pequeñas
+se fusionan con el vecino con el que compartían la conexión más fuerte en el mapa
+original y se limita el ensamblaje a ocho conjuntos. La salida dispone de tres
+bloques de margen por lado y se descarta si no conserva al menos el 92 % de la
+componente transitable original antes de reparar conexiones. Esto evita aceptar
+reconstrucciones fragmentadas con paredes, raíles o caminos abiertos al vacío.
