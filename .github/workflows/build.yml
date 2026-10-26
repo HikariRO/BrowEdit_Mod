@@ -38,7 +38,7 @@ jobs:
       - name: Set build version
         shell: pwsh
         working-directory: source
-        run: Set-Content -Path Version.h -Value '#define VERSION 670'
+        run: Set-Content -Path Version.h -Value '#define VERSION 671'
 
       - name: Build
         working-directory: source
@@ -48,22 +48,22 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force dist
-          Copy-Item source/BrowEdit3.exe dist/HikariRO_BrowEdit_Mod_v3.670.exe
+          Copy-Item source/BrowEdit3.exe dist/HikariRO_BrowEdit_Mod_v3.671.exe
           Copy-Item source/imgui.ini dist/
           Copy-Item source/lib/bugtrap/BugTrap-x64.dll dist/
           Copy-Item source/data dist/data -Recurse
           Copy-Item source/docs dist/docs -Recurse
-          "HikariRO BrowEdit Mod v3.670`nCommit: $env:GITHUB_SHA" | Set-Content dist/BUILD_INFO.txt
+          "HikariRO BrowEdit Mod v3.671`nCommit: $env:GITHUB_SHA" | Set-Content dist/BUILD_INFO.txt
 
       - uses: actions/upload-artifact@v4
         with:
-          name: HikariRO-BrowEdit-Mod-v3.670
+          name: HikariRO-BrowEdit-Mod-v3.671
           path: dist
 
       - name: Create verified release package
         shell: pwsh
         run: |
-          $archive = "HikariRO-BrowEdit-Mod-v3.670.zip"
+          $archive = "HikariRO-BrowEdit-Mod-v3.671.zip"
           Compress-Archive -Path dist\* -DestinationPath $archive -Force
           $hash = (Get-FileHash $archive -Algorithm SHA256).Hash.ToLower()
           "$hash  $archive" | Set-Content "$archive.sha256" -Encoding ascii
@@ -73,10 +73,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          $tag = "v3.670"
-          $archive = "HikariRO-BrowEdit-Mod-v3.670.zip"
+          $tag = "v3.671"
+          $archive = "HikariRO-BrowEdit-Mod-v3.671.zip"
           $notes = @"
-          HikariRO BrowEdit Mod v3.670
+          HikariRO BrowEdit Mod v3.671
 
           Descarga oficial compilada automáticamente desde el código público.
           Se incluye el archivo SHA-256 para verificar la integridad del ZIP.
@@ -84,5 +84,5 @@ jobs:
           if (gh release view $tag --repo $env:GITHUB_REPOSITORY 2>$null) {
             gh release upload $tag $archive "$archive.sha256" --clobber --repo $env:GITHUB_REPOSITORY
           } else {
-            gh release create $tag $archive "$archive.sha256" --title "HikariRO BrowEdit Mod v3.670" --notes $notes --latest --target $env:GITHUB_SHA --repo $env:GITHUB_REPOSITORY
+            gh release create $tag $archive "$archive.sha256" --title "HikariRO BrowEdit Mod v3.671" --notes $notes --latest --target $env:GITHUB_SHA --repo $env:GITHUB_REPOSITORY
           }

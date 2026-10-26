@@ -167,3 +167,9 @@ respaldo. Se intercambian dos fragmentos de terreno con densidad compatible y
 el resultado pasa por las mismas reparaciones de uniones y validaciones de
 conectividad antes de aceptarse. Así se evita cancelar o duplicar el mapa cuando
 el empaquetado por regiones no dispone de espacio libre.
+
+Desde v3.671, el intercambio de fragmentos de emergencia queda eliminado porque
+podía producir cortes rectos en mapas densos. En estos casos se amplía únicamente
+el mapa de salida con un borde bloqueado y alineado al tamaño de fragmento. Ese
+espacio permite recolocar regiones completas conservando su geometría interna,
+paredes, alturas, objetos y rutas; el mapa fuente mantiene sus dimensiones.
