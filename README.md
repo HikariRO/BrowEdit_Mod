@@ -146,3 +146,10 @@ plataforma o conjunto estructural como una sola unidad. Las alturas relativas y
 las paredes internas de cada región se conservan; solamente se reconstruyen las
 conexiones estrechas entre regiones. Si las regiones no caben sin solaparse, la
 generación se cancela y el mapa anterior permanece intacto.
+
+Desde v3.669, la detección de regiones ajusta automáticamente su umbral para
+mapas que inicialmente forman una única superficie conectada. Si el empaquetado
+completo no encuentra una distribución válida, usa una reconstrucción
+conservadora moviendo una región completa a terreno vacío. La ventana informa
+del resultado o del motivo del fallo y limpia también los archivos auxiliares
+`.rsw.extra.json` cuando una operación se cancela.
