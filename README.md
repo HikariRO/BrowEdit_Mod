@@ -160,3 +160,10 @@ Las versiones para Windows se publican en **GitHub Releases** como un ZIP
 estable acompañado de su suma `SHA-256`. El artefacto de GitHub Actions se
 mantiene como resultado técnico de la compilación; para el uso normal se
 recomienda descargar siempre la versión publicada en Releases.
+
+Desde v3.670, los mapas densos que no contienen un espacio vacío suficientemente
+grande para trasladar una región completa utilizan una reconstrucción mínima de
+respaldo. Se intercambian dos fragmentos de terreno con densidad compatible y
+el resultado pasa por las mismas reparaciones de uniones y validaciones de
+conectividad antes de aceptarse. Así se evita cancelar o duplicar el mapa cuando
+el empaquetado por regiones no dispone de espacio libre.
