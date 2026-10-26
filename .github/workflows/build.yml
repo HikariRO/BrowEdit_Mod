@@ -5,6 +5,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: windows-latest
@@ -56,3 +59,30 @@ jobs:
         with:
           name: HikariRO-BrowEdit-Mod-v3.669
           path: dist
+
+      - name: Create verified release package
+        shell: pwsh
+        run: |
+          $archive = "HikariRO-BrowEdit-Mod-v3.669.zip"
+          Compress-Archive -Path dist\* -DestinationPath $archive -Force
+          $hash = (Get-FileHash $archive -Algorithm SHA256).Hash.ToLower()
+          "$hash  $archive" | Set-Content "$archive.sha256" -Encoding ascii
+
+      - name: Publish GitHub Release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = "v3.669"
+          $archive = "HikariRO-BrowEdit-Mod-v3.669.zip"
+          $notes = @"
+          HikariRO BrowEdit Mod v3.669
+
+          Descarga oficial compilada automáticamente desde el código público.
+          Se incluye el archivo SHA-256 para verificar la integridad del ZIP.
+          "@
+          if (gh release view $tag --repo $env:GITHUB_REPOSITORY 2>$null) {
+            gh release upload $tag $archive "$archive.sha256" --clobber --repo $env:GITHUB_REPOSITORY
+          } else {
+            gh release create $tag $archive "$archive.sha256" --title "HikariRO BrowEdit Mod v3.669" --notes $notes --latest --target $env:GITHUB_SHA --repo $env:GITHUB_REPOSITORY
+          }

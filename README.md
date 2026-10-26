@@ -153,3 +153,10 @@ completo no encuentra una distribución válida, usa una reconstrucción
 conservadora moviendo una región completa a terreno vacío. La ventana informa
 del resultado o del motivo del fallo y limpia también los archivos auxiliares
 `.rsw.extra.json` cuando una operación se cancela.
+
+## Descargas verificadas
+
+Las versiones para Windows se publican en **GitHub Releases** como un ZIP
+estable acompañado de su suma `SHA-256`. El artefacto de GitHub Actions se
+mantiene como resultado técnico de la compilación; para el uso normal se
+recomienda descargar siempre la versión publicada en Releases.
